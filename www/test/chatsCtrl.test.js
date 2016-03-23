@@ -35,9 +35,16 @@ describe('ChatsCtrl', function () {
     describe('#doCallAllChats', function () {
         it('should call all the chats info', function () {
             if(chatsMock.all){
-                spyOn(chatsMock, 'all');
-                spyOn(chatsMock, 'remove');
-                expect(scope.chats).toHaveBeenCalled();    
+                // spyOn(scope, 'chats');  
+                expect(scope.chats).toEqual(
+                    jasmine.objectContaining([{
+                        id: 0,
+                        name: 'Ben Sparrow',
+                        lastText: 'You on your way?',
+                        face: 'img/ben.png'
+                    }])
+                );              
+                // expect(scope.chats).toHaveBeenCalled();    
             }                          
         });
     });
